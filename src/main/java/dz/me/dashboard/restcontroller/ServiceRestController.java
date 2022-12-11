@@ -66,42 +66,15 @@ public class ServiceRestController {
         }
     }
 
-    /*
-     * @GetMapping("/all/meme-structure/{structure-id}")
-     * public ResponseEntity<?> findByIdStructure(@PathVariable(name =
-     * "structure-id") String structureId) {
-     * 
-     * Optional<Structure> structure =
-     * structureService.findById(UUID.fromString(structureId));
-     * if (structure.isPresent()) {
-     * return ResponseEntity.ok(serviceService.findByStructure(structure.get()));
-     * } else {
-     * return ResponseEntityUtils.ExceptionResponseEntity("structure-id not Found",
-     * HttpStatus.NOT_FOUND.value());
-     * }
-     * }
-     */
-    /*
-     * @GetMapping("/all/meme-structure/by-token")
-     * public ResponseEntity<?> findByStructureByToken(HttpServletRequest request) {
-     * String serviceId = jwtUtils.ClaimAsString(request, "service-id");
-     * Optional<Service> service =
-     * serviceService.findById(UUID.fromString(serviceId));
-     * Optional<Structure> structure = structureService
-     * .findById(service.get().getGroupService().getStructure().getId());
-     * if (structure.isPresent()) {
-     * return ResponseEntity.ok(serviceService.findByStructure(structure.get()));
-     * } else {
-     * return ResponseEntityUtils.ExceptionResponseEntity("structure-id not Found",
-     * HttpStatus.NOT_FOUND.value());
-     * }
-     * }
-     */
+    @GetMapping("/all")
+    public ResponseEntity<?> findAll() {
+        return ResponseEntity.ok(serviceService.findAll());
+    }
 
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping("/ajouter-service")
+    @PostMapping("/add")
     public ResponseEntity<?> save(HttpServletRequest request, @RequestBody() ServiceModel serviceModel) {
         try {
             Service service = new Service();
@@ -141,7 +114,7 @@ public class ServiceRestController {
         }
     }
 
-    @PutMapping("/modifier-service")
+    @PutMapping("/update")
     public ResponseEntity<?> update(HttpServletRequest request, @RequestBody() ServiceModelUpdate serviceModel) {
         try {
 
@@ -155,7 +128,7 @@ public class ServiceRestController {
         }
     }
 
-    @DeleteMapping("/supprimer-service/{service-id}")
+    @DeleteMapping("/delete/{service-id}")
     public ResponseEntity<?> delete(HttpServletRequest request, @PathVariable(name = "service-id") String serviceId) {
         try {
             serviceService.deleteById(UUID.fromString(serviceId));

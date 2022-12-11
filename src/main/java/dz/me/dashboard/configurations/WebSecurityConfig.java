@@ -46,7 +46,7 @@ public class WebSecurityConfig {
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    http.authorizeRequests()
+    http.cors().and().csrf().disable().authorizeRequests()
         .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html")
         .permitAll()
         .antMatchers(HttpMethod.GET, "/user/info", "/api/foos/**", "/api/v1/services/**", "/api/v1/rubriques/**",
@@ -58,7 +58,8 @@ public class WebSecurityConfig {
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
         .authorizeRequests()
         .antMatchers("/api/v1/auth/login/**", "/api/v1/auth/refresh-token**", "/guichet1",
-            "/api/v1/guichets/all/user/**", "/")
+            "/api/v1/guichets/all/user/**", "/", "/api/v1/services/**", "/api/v1/rubriques/**",
+            "/api/v1/rubriques-values/**", "/api/v1/users/**")
         .permitAll()
         .anyRequest().authenticated();
     http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);

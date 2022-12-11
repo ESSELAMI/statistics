@@ -1,5 +1,6 @@
 package dz.me.dashboard.services;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -14,5 +15,7 @@ public interface ServiceService {
     Service save(Service service);
 
     void deleteById(UUID serviceId);
+
+    List<Service> findAll();
 
 }

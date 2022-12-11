@@ -52,4 +52,9 @@ public class ServiceServiceImpl implements ServiceService {
 
     }
 
+    @Override
+    public List<Service> findAll() {
+        return serviceRepository.findAll();
+    }
+
 }
