@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.List;
 import dz.me.dashboard.entities.Rubrique;
 import dz.me.dashboard.repositories.RubriqueRepository;
 import dz.me.dashboard.services.RubriqueService;
@@ -22,4 +22,13 @@ public class RubriqueServiceImpl implements RubriqueService {
         return repository.findById(uuid);
     }
 
+    @Override
+    public Rubrique save(Rubrique rubrique) {
+        return repository.save(rubrique);
+    }
+
+    @Override
+    public List<Rubrique> findAll() {
+        return repository.findAll();
+    }
 }

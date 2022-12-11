@@ -14,10 +14,10 @@ import org.springframework.context.annotation.Bean;
  * @author MEKRICHE TAREK
  */
 @SpringBootApplication
-public class FilleAttenteApplication {
+public class DashboardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FilleAttenteApplication.class, args);
+		SpringApplication.run(DashboardApplication.class, args);
 	}
 
 	@PostConstruct

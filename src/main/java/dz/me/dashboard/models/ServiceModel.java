@@ -17,6 +17,4 @@ public class ServiceModel {
 
     private String serviceLettre;
 
-    private String groupServiceId;
-
 }

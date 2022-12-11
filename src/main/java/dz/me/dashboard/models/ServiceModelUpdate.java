@@ -11,7 +11,5 @@ public class ServiceModelUpdate {
 
     private String id;
     private String name;
-    private String StructureId;
-    private String groupId;
 
 }

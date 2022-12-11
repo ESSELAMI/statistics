@@ -13,7 +13,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import dz.me.dashboard.entities.BlackListRefreshToken;
-import dz.me.dashboard.entities.Guichet;
+
 import dz.me.dashboard.entities.RefreshToken;
 import dz.me.dashboard.entities.TentativeAcces;
 import dz.me.dashboard.entities.User;
@@ -24,7 +24,7 @@ import dz.me.dashboard.models.AccessTokenModel;
 import dz.me.dashboard.models.RefreshTokenRequest;
 import dz.me.dashboard.repositories.RefreshTokenRepository;
 import dz.me.dashboard.services.BlackListRefreshTokenService;
-import dz.me.dashboard.services.GuichetService;
+
 import dz.me.dashboard.services.RefreshTokenService;
 import dz.me.dashboard.services.TentativeAccesService;
 import dz.me.dashboard.services.UserService;
@@ -49,8 +49,6 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
 	private TentativeAccesService tentativeAccesService;
 	@Autowired
 	private UserService userService;
-	@Autowired
-	private GuichetService guichetService;
 
 	@Override
 	public Optional<RefreshToken> findById(String token) {
@@ -134,20 +132,6 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
 					DecodedJWT decodedJWT = jwtVerifier.verify(jwt);
 					Algorithm algorithmAcces = Algorithm.HMAC256(jwtUtils.getJwtSecret());
 					User userRepo = userService.findByUsername(decodedJWT.getSubject()).get();
-					Optional<Guichet> guichet = guichetService.findByServiceAndGuichet(userRepo.getService(),
-							refreshTokenRequest.getGuichet());
-
-					if (!guichet.isPresent()) {
-						// augmenter le nombres de tentative
-						int tentative = tentativeAccesService.getNombreTentative(ip);
-						tentative++;
-						TentativeAcces tentativeAcces = new TentativeAcces(tentative, tentativeAccesService.sysdate(),
-								ip);
-						tentativeAccesService.addTentative(tentativeAcces);
-						throw new ResourceNotFoundException(
-								"Vous devez Contacter Votre Admin afin de creer le nouveau Guichet relié a ce service : ");
-
-					}
 
 					List<String> role = userRepo.getRoles().stream()
 							.map(ga -> ga.getName()).collect(Collectors.toList());
@@ -159,8 +143,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
 							.withClaim("roles", role)
 							.withClaim("service-id", userRepo.getService().getId().toString())
 							.withClaim("user-id", userRepo.getId().toString())
-							.withClaim("guichet-number", guichet.get().getGuichet())
-							.withClaim("guichet-id", guichet.get().getId().toString())
+
 							.withClaim("name", userRepo.getLastname() + " " + userRepo.getFirstname())
 
 							.sign(algorithmAcces);
