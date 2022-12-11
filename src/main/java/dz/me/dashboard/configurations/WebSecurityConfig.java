@@ -47,10 +47,10 @@ public class WebSecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http.authorizeRequests()
-        .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/api/v1/services/**",
-            "/api/v1/rubriques/**")
+        .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html")
         .permitAll()
-        .antMatchers(HttpMethod.GET, "/user/info", "/api/foos/**")
+        .antMatchers(HttpMethod.GET, "/user/info", "/api/foos/**", "/api/v1/services/**", "/api/v1/rubriques/**",
+            "/api/v1/rubriques-values/**")
 
     ;
     http.cors().and().csrf().disable()

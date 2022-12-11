@@ -6,7 +6,8 @@ import lombok.Getter;
 
 @Getter
 public class RubriqueValueModel {
-    private String idRubrique;
+    private String id;
+    private String rubriqueId;
     private double value;
     private Date insertionDate;
 }
