@@ -36,4 +36,14 @@ public class Service {
     @Column
     private String serviceLettre;
 
+    public Service(String service, String serviceAr, String serviceLettre) {
+        this.service = service;
+        this.serviceAr = serviceAr;
+        this.serviceLettre = serviceLettre;
+    }
+
+    public Service() {
+
+    }
+
 }

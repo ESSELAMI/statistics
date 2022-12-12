@@ -14,4 +14,6 @@ public interface RoleService {
     public Role save(Role role);
 
     public List<Role> findAll();
+
+    public List<Role> findAll(List<String> names);
 }

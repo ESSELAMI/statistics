@@ -1,5 +1,6 @@
 package dz.me.dashboard.entities;
 
+import java.util.Collection;
 import java.util.UUID;
 import javax.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -34,4 +35,7 @@ public class Role {
     this.name = name;
   }
 
+  @ManyToMany
+  @JoinTable(name = "roles_privileges", joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
+  private Collection<Privilege> privileges;
 }

@@ -1,5 +1,6 @@
 package dz.me.dashboard.entities;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -22,6 +23,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
@@ -36,6 +38,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 public class User {
   @Id
   @GeneratedValue(generator = "uuid2")
@@ -56,7 +59,7 @@ public class User {
   private String password;
   @ManyToMany(fetch = FetchType.LAZY)
   @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-  private Set<Role> roles = new HashSet<>();
+  private Collection<Role> roles;
 
   private boolean isAccountNonExpired;
 
@@ -70,8 +73,10 @@ public class User {
   @JoinColumn(name = "id_service")
   private Service service;
 
-  public User(String username, String email, String password) {
+  public User(String username, String email, String password, String firstname, String lastname) {
     this.username = username;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.email = email;
     this.password = password;
     isAccountNonExpired = true;
