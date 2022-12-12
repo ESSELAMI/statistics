@@ -16,12 +16,12 @@ import dz.me.dashboard.entities.Privilege;
 @Repository
 public interface PrivilegeRepository extends JpaRepository<Privilege, UUID> {
 
-  @Query(value = "delete from privilege", nativeQuery = true)
+  @Query(value = "delete from privileges", nativeQuery = true)
   public void deleteAll();
 
   public List<Privilege> findByName(String string);
 
-  @Query(value = "select * from privilege where name in ?1 ", nativeQuery = true)
+  @Query(value = "select * from privileges where name in ?1 ", nativeQuery = true)
   public List<Privilege> findAll1(List<Privilege> names);
 
   public List<Privilege> findAll();
