@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import dz.me.dashboard.entities.Rubrique;
+import dz.me.dashboard.exceptions.ResourceForbiddenException;
 import dz.me.dashboard.repositories.RubriqueRepository;
 import dz.me.dashboard.services.RubriqueService;
 
@@ -30,5 +31,16 @@ public class RubriqueServiceImpl implements RubriqueService {
     @Override
     public List<Rubrique> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public void deleteById(UUID rubrique) {
+        try {
+
+            repository.deleteById(rubrique);
+        } catch (Exception e) {
+            throw new ResourceForbiddenException(e.getMessage());
+        }
+
     }
 }

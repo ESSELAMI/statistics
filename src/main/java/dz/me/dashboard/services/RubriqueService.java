@@ -13,4 +13,6 @@ public interface RubriqueService {
 
     public List<Rubrique> findAll();
 
+    void deleteById(UUID serviceId);
+
 }

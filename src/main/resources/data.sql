@@ -276,6 +276,9 @@ INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
 	('31bb1f1f-b8b6-4705-a942-0312ba096b80', 'a9133cf8-b8ff-4849-8bf6-2cb208659081'),
 	('e23d0813-33b4-4915-bfa9-c0e004e13c09', '3fc96aa8-0dc5-44de-944a-f1bbbcae6ae9'),
 	('5129e22b-6a84-4a3d-9475-97f11e096694', '215ef598-20b2-4133-95c1-91a015c0b2b0');
+
+ALTER TABLE service CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci
+
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
