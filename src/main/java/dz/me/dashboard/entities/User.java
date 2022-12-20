@@ -27,7 +27,7 @@ import lombok.Setter;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @Entity
 @Table(name = "users", uniqueConstraints = {

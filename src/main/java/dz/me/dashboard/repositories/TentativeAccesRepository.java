@@ -10,7 +10,7 @@ import dz.me.dashboard.entities.TentativeAcces;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public interface TentativeAccesRepository extends JpaRepository<TentativeAcces, String> {
 

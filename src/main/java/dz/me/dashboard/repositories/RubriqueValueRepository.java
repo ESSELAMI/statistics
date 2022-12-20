@@ -10,7 +10,7 @@ import dz.me.dashboard.entities.RubriqueValue;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public interface RubriqueValueRepository extends JpaRepository<RubriqueValue, UUID> {
 

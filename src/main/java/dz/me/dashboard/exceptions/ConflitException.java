@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @ResponseStatus(value = HttpStatus.CONFLICT)
 public class ConflitException extends RuntimeException {

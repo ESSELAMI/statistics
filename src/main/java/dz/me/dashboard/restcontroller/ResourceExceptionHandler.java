@@ -10,7 +10,7 @@ import dz.me.dashboard.utils.ResponseEntityUtils;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @ControllerAdvice
 public class ResourceExceptionHandler {

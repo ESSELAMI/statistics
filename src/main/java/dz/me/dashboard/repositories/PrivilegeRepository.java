@@ -11,7 +11,7 @@ import dz.me.dashboard.entities.Privilege;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Repository
 public interface PrivilegeRepository extends JpaRepository<Privilege, UUID> {

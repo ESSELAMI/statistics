@@ -2,7 +2,7 @@ package dz.me.dashboard.models;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public enum ERole {
   ROLE_USER,

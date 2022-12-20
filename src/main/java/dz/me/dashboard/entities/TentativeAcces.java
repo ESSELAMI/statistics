@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @Entity
 @Data

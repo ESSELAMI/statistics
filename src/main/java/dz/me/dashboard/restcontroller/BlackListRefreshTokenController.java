@@ -18,7 +18,7 @@ import dz.me.dashboard.utils.ResponseEntityUtils;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @RestController
 @RequestMapping("api/v1/blackListRefreshTokens")

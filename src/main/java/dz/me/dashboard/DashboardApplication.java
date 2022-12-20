@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @SpringBootApplication
 public class DashboardApplication {

@@ -6,7 +6,7 @@ import dz.me.dashboard.entities.BlackListRefreshToken;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public interface BlackListJwtRepository extends JpaRepository<BlackListRefreshToken, String> {
 

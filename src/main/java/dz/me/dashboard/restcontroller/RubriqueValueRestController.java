@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,8 @@ import dz.me.dashboard.utils.ResponseEntityUtils;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 @RestController
-@RequestMapping(path = "/api/v1/rubriques-values")
+@RequestMapping(path = "/api/v1/rubrique-values")
+@CrossOrigin("*")
 @SecurityRequirement(name = "bearerAuth")
 public class RubriqueValueRestController {
 
@@ -64,7 +66,7 @@ public class RubriqueValueRestController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping("/add-rubrique-value")
+    @PostMapping("/add")
     public ResponseEntity<?> save(HttpServletRequest request, @RequestBody() RubriqueValueModel rubriqueValueModel) {
         try {
 

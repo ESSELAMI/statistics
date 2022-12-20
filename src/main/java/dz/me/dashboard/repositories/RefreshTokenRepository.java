@@ -7,7 +7,7 @@ import dz.me.dashboard.entities.RefreshToken;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public interface RefreshTokenRepository extends JpaRepository<RefreshToken, String> {
 

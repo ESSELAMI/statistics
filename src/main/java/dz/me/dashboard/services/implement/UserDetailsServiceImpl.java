@@ -17,7 +17,7 @@ import dz.me.dashboard.repositories.UserRepository;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

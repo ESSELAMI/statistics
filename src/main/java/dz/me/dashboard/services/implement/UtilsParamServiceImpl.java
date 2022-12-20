@@ -7,7 +7,7 @@ import dz.me.dashboard.services.UtilsParamService;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Service
 public class UtilsParamServiceImpl implements UtilsParamService {

@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Getter
 public class RoleModel {

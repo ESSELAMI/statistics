@@ -11,7 +11,7 @@ import dz.me.dashboard.entities.Role;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Repository
 public interface RoleRepository extends JpaRepository<Role, UUID> {
