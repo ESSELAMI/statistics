@@ -164,7 +164,7 @@ public class UserRestController {
 
     }
 
-    @DeleteMapping("/{user-id}")
+    @DeleteMapping("delete/{user-id}")
     public ResponseEntity<?> delete(@PathVariable(name = "user-id") String idUser) {
         try {
             userService.delete(UUID.fromString(idUser));
