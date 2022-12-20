@@ -1,15 +1,21 @@
 package dz.me.dashboard.entities;
 
+import java.util.Collection;
+import java.util.Set;
 import java.util.UUID;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
+import antlr.collections.List;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,6 +41,9 @@ public class Service {
 
     @Column
     private String serviceLettre;
+
+    @OneToMany(mappedBy = "service", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Rubrique> rubriques;
 
     public Service(String service, String serviceAr, String serviceLettre) {
         this.service = service;

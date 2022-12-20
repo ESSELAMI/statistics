@@ -37,7 +37,7 @@ public class Rubrique {
     private String nameAr;
     private String nameEn;
 
-    // @JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_service")
     private Service service;
