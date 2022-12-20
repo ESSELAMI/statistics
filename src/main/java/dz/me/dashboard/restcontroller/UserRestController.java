@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,6 +38,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
  * @author MEKRICHE TAREK
  */
 @RestController
+
 @RequestMapping(path = "/api/v1/users")
 @CrossOrigin("*")
 @SecurityRequirement(name = "bearerAuth")
@@ -55,7 +57,7 @@ public class UserRestController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/username/{username}")
+    @GetMapping("/by-username/{username}")
     public ResponseEntity<?> findByUsername(@PathVariable(name = "username") String username) {
         Optional<User> user = userService.findByUsername(username);
         if (!user.isPresent()) {
@@ -106,7 +108,7 @@ public class UserRestController {
         return ResponseEntity.ok(userService.save(user.get()));
     }
 
-    @PostMapping("/ajouter-user")
+    @PostMapping("/add")
     public ResponseEntity<?> save(@RequestBody() UserModel userModel) {
         User user = new User();
         user.setUsername(userModel.getUsername());
@@ -123,7 +125,7 @@ public class UserRestController {
         return ResponseEntity.ok(userService.save(user));
     }
 
-    @GetMapping("affecter/user/{user-id}/service/{service-id}")
+    @GetMapping("assign/user/{user-id}/service/{service-id}")
     public ResponseEntity<?> affecterUserToService(@PathVariable(name = "user-id") String idUser,
             @PathVariable(name = "service-id") String idService) {
         Optional<User> user = userService.findById(UUID.fromString(idUser));
@@ -175,7 +177,7 @@ public class UserRestController {
 
     }
 
-    @GetMapping("/service/{service-id}")
+    @GetMapping("/by-service/{service-id}")
     public ResponseEntity<?> findByService(@PathVariable(name = "service-id") String idService) {
         try {
             return ResponseEntity
@@ -195,7 +197,7 @@ public class UserRestController {
 
     }
 
-    @GetMapping("/affecter-role-user/user/{user-id}/role/{role-id}")
+    @GetMapping("/assign-role-user/user/{user-id}/role/{role-id}")
     public ResponseEntity<?> AffecterRoleToUser(@PathVariable(name = "user-id") String idUser,
             @PathVariable(name = "role-id") String idRole) {
         Optional<User> user = userService.findById(UUID.fromString(idUser));

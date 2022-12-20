@@ -2,12 +2,17 @@ package dz.me.dashboard.restcontroller;
 
 import java.util.Optional;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +46,7 @@ public class RoleRestController {
         return ResponseEntity.ok(role.get());
     }
 
-    @DeleteMapping("/{role-id}")
+    @DeleteMapping("/delete/{role-id}")
     public ResponseEntity<?> delete(@PathVariable(name = "role-id") String idRole) {
         try {
             roleService.deleteById(UUID.fromString(idRole));
@@ -54,18 +59,33 @@ public class RoleRestController {
 
     }
 
-    @PostMapping("/ajouter-role")
+    @PostMapping("/add")
     public ResponseEntity<?> save(@RequestBody RoleModel roleModel) {
         Role role = new Role();
-        role.setName(roleModel.getRole());
+        role.setName(roleModel.getName());
 
         return ResponseEntity.ok(roleService.save(role));
     }
 
+    @PreAuthorize("hasRole('SUPERADMIN')")
     @GetMapping("/all")
     public ResponseEntity<?> findAll() {
 
         return ResponseEntity.ok(roleService.findAll());
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> update(HttpServletRequest request, @RequestBody() RoleModel roleModel) {
+        try {
+
+            Role role = new Role();
+            role.setId(UUID.fromString(roleModel.getId()));
+            role.setName(roleModel.getName());
+
+            return ResponseEntity.ok(roleService.save(role));
+        } catch (Exception e) {
+            return ResponseEntityUtils.ExceptionResponseEntity(e.getMessage(), HttpStatus.FORBIDDEN.value());
+        }
     }
 
 }

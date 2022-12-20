@@ -66,12 +66,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
-        List<User> l = userRepository.findAll1();
-        if (l.size() != 0)
-            return userRepository.findAll1();
-        else
-            return new ArrayList<User>();
-    }
 
+    public List<User> findAll() {
+
+        return userRepository.findAll();
+    }
 }

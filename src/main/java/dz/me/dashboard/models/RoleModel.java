@@ -8,5 +8,6 @@ import lombok.Getter;
  */
 @Getter
 public class RoleModel {
-    private String role;
+    private String id;
+    private String name;
 }
