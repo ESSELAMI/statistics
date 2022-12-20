@@ -5,7 +5,7 @@ import lombok.Data;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Data
 @AllArgsConstructor

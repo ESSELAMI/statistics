@@ -35,7 +35,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @RestController
 

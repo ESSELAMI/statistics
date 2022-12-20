@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public class UtilsIP {
 	private static final List<String> IP_HEADERS = Arrays.asList("X-Forwarded-For", "Proxy-Client-IP",

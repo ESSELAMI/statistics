@@ -14,7 +14,7 @@ import dz.me.dashboard.entities.User;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public class UserDetailsImpl implements UserDetails {
   private static final long serialVersionUID = 1L;

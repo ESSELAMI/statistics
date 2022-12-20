@@ -17,7 +17,7 @@ import dz.me.dashboard.services.ServiceService;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {

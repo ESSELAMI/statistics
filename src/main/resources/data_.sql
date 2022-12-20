@@ -12,6 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Dumping database structure for stat_db
+-- CREATE DATABASE IF NOT EXISTS `stat_db` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+-- USE `stat_db`;
+
 -- Dumping structure for table stat_db.black_list_refresh_token
 CREATE TABLE IF NOT EXISTS `black_list_refresh_token` (
   `token` varchar(255) NOT NULL,
@@ -69,10 +74,8 @@ CREATE TABLE IF NOT EXISTS `refresh_token` (
   PRIMARY KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table stat_db.refresh_token: 1 rows
+-- Dumping data for table stat_db.refresh_token: 0 rows
 /*!40000 ALTER TABLE `refresh_token` DISABLE KEYS */;
-INSERT INTO `refresh_token` (`username`, `expired`, `generated_from_ip`, `generated_on`, `token`) VALUES
-	('esselami', '2022-12-31 12:04:30', '0:0:0:0:0:0:0:1', '2022-12-19 23:57:50', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlc3NlbGFtaSIsImlzcyI6IjA6MDowOjA6MDowOjA6MSIsImV4cCI6MTY3MjQ4NDY3MH0.h3Uxp-b9Bt4zPl0Z81v1wM6mALa8ixJV5RJFJ_NLvW4');
 /*!40000 ALTER TABLE `refresh_token` ENABLE KEYS */;
 
 -- Dumping structure for table stat_db.roles
@@ -196,15 +199,8 @@ CREATE TABLE IF NOT EXISTS `service` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- Dumping data for table stat_db.service: 6 rows
+-- Dumping data for table stat_db.service: 0 rows
 /*!40000 ALTER TABLE `service` DISABLE KEYS */;
-INSERT INTO `service` (`id`, `service`, `service_ar`, `service_lettre`) VALUES
-	('b88012d0-a5e0-492f-b223-bcd53e3704cd', 'SERVICE DES PRESTATIONS', 'مصلحة الأداءات', 'SDP'),
-	('bcdab951-2c01-4892-a7a6-743755bbe887', 'SERVICE DE FINANCE', 'مصلحة المالية', 'SDF'),
-	('4774387f-df91-4220-8eab-a1d5dfd8a78d', 'SERVICE DE RECOUVREMENT', 'مصلحة التحصيل', 'SDR'),
-	('d01a21c5-5c88-4647-8ed2-e83659640fcc', 'SERVICE DE CONTROL MEDECAL', 'مصلحة المراقبة الطبية', 'SDCM'),
-	('2b4f8816-8b5b-4ea4-ad0b-63dc0aae616a', 'DIRECTION', 'المديرية', 'DR'),
-	('0f58cf42-965a-4d61-b5c9-d7620e1493ea', 'SERVICE INFORMATIQUE', 'مصلحة الإعلام الآلي', 'SDI');
 /*!40000 ALTER TABLE `service` ENABLE KEYS */;
 
 -- Dumping structure for table stat_db.tentative_acces
@@ -215,10 +211,8 @@ CREATE TABLE IF NOT EXISTS `tentative_acces` (
   PRIMARY KEY (`ip_request`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table stat_db.tentative_acces: 1 rows
+-- Dumping data for table stat_db.tentative_acces: 0 rows
 /*!40000 ALTER TABLE `tentative_acces` DISABLE KEYS */;
-INSERT INTO `tentative_acces` (`ip_request`, `date_tentative`, `tentative`) VALUES
-	('0:0:0:0:0:0:0:1', '2022-12-20 01:36:35', 0);
 /*!40000 ALTER TABLE `tentative_acces` ENABLE KEYS */;
 
 -- Dumping structure for table stat_db.traitement
@@ -255,13 +249,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table stat_db.users: 7 rows
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `firstname`, `is_account_non_expired`, `is_account_non_locked`, `is_credentials_non_expired`, `is_enabled`, `lastname`, `password`, `username`, `id_service`) VALUES
-	('01a14e33-b530-4cf6-851c-da338c0889dd', 'esselamia@cnas.dz', 'ABDELLATIF', b'1', b'1', b'1', b'1', 'ESSELAMI', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'esselami', '0f58cf42-965a-4d61-b5c9-d7620e1493ea'),
-	('29b7440f-9789-49fd-a44f-51c7b0e9808a', 'dr_aindefla@cnas.dz', 'AHMED', b'1', b'1', b'1', b'1', 'BOUDJENAH', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'dr_aindefla', '2b4f8816-8b5b-4ea4-ad0b-63dc0aae616a'),
-	('e23d0813-33b4-4915-bfa9-c0e004e13c09', 'sdf_aindefla@cnas.dz', 'SDF', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'sdf_aindefla', 'bcdab951-2c01-4892-a7a6-743755bbe887'),
-	('31bb1f1f-b8b6-4705-a942-0312ba096b80', 'sdr_aindefla@cnas.dz', 'SDR', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'sdr_aindefla', '4774387f-df91-4220-8eab-a1d5dfd8a78d'),
-	('08afb782-6a73-4d41-990b-90de7faad0e1', 'sdp_aindefla@cnas.dz', 'SDP', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'sdp_aindefla', 'b88012d0-a5e0-492f-b223-bcd53e3704cd'),
-	('5129e22b-6a84-4a3d-9475-97f11e096694', 'cm_aindefla@cnas.dz', 'CM', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'cm_aindefla', 'd01a21c5-5c88-4647-8ed2-e83659640fcc'),
-	('66b362be-f48f-4ac4-bb3f-9c5573be4cdb', 'ccaindefla@cnas.dz', 'AHMED', b'1', b'1', b'1', b'1', 'NEMAR', '$2a$10$TsWmmozx3Yp2G0BpoEeR3eoyVrIEbeU7aPijlEXhUJ9/GUErxBlPy', 'admin_aindefla', '0f58cf42-965a-4d61-b5c9-d7620e1493ea');
+	('01a14e33-b530-4cf6-851c-da338c0889dd', 'esselamia@cnas.dz', 'ABDELLATIF', b'1', b'1', b'1', b'1', 'ESSELAMI', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'esselami', NULL),
+	('29b7440f-9789-49fd-a44f-51c7b0e9808a', 'dr_aindefla@cnas.dz', 'AHMED', b'1', b'1', b'1', b'1', 'ESSELAMI', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'dr_aindefla', NULL),
+	('e23d0813-33b4-4915-bfa9-c0e004e13c09', 'sdf_aindefla@cnas.dz', 'SDF', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'sdf_aindefla', NULL),
+	('31bb1f1f-b8b6-4705-a942-0312ba096b80', 'sdr_aindefla@cnas.dz', 'SDR', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'sdr_aindefla', NULL),
+	('08afb782-6a73-4d41-990b-90de7faad0e1', 'sdp_aindefla@cnas.dz', 'SDP', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'sdp_aindefla', NULL),
+	('5129e22b-6a84-4a3d-9475-97f11e096694', 'cm_aindefla@cnas.dz', 'CM', b'1', b'1', b'1', b'1', 'AIN DEFLA', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'cm_aindefla', NULL),
+	('cdff885b-3d49-4660-a2b8-34a048e6476a', 'ccaindefla@cnas.dz', 'AHMED', b'1', b'1', b'1', b'1', 'NEMAR', '$2a$12$TrDJwYYx3ivqkPYaDFNojOkQJ/Naiqj5Q66tah3NdW7FjqUMGCDm.', 'admin_aindefla', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table stat_db.user_roles
@@ -272,17 +266,19 @@ CREATE TABLE IF NOT EXISTS `user_roles` (
   KEY `FKhfh9dx7w3ubf1co1vdev94g3f` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Dumping data for table stat_db.user_roles: 8 rows
+-- Dumping data for table stat_db.user_roles: 7 rows
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
 INSERT INTO `user_roles` (`user_id`, `role_id`) VALUES
 	('01a14e33-b530-4cf6-851c-da338c0889dd', 'cc81babc-04d3-4efd-a783-a2f2ee9eaef6'),
-	('66b362be-f48f-4ac4-bb3f-9c5573be4cdb', 'c5d027d2-1181-44cb-ae12-abe180156484'),
+	('cdff885b-3d49-4660-a2b8-34a048e6476a', 'c5d027d2-1181-44cb-ae12-abe180156484'),
 	('29b7440f-9789-49fd-a44f-51c7b0e9808a', '93cb30f5-f35c-496c-82cb-c6b48eece341'),
 	('08afb782-6a73-4d41-990b-90de7faad0e1', '01f0f74b-0046-444e-8133-4088c05ea816'),
 	('31bb1f1f-b8b6-4705-a942-0312ba096b80', 'a9133cf8-b8ff-4849-8bf6-2cb208659081'),
 	('e23d0813-33b4-4915-bfa9-c0e004e13c09', '3fc96aa8-0dc5-44de-944a-f1bbbcae6ae9'),
-	('5129e22b-6a84-4a3d-9475-97f11e096694', '215ef598-20b2-4133-95c1-91a015c0b2b0'),
-	('66b362be-f48f-4ac4-bb3f-9c5573be4cdb', 'c5d027d2-1181-44cb-ae12-abe180156484');
+	('5129e22b-6a84-4a3d-9475-97f11e096694', '215ef598-20b2-4133-95c1-91a015c0b2b0');
+
+ALTER TABLE service CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci
+
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

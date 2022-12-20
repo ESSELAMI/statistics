@@ -12,7 +12,7 @@ import dz.me.dashboard.entities.User;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {

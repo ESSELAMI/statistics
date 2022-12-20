@@ -40,7 +40,7 @@ import dz.me.dashboard.utils.UtilsIP;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @RestController
 @CrossOrigin

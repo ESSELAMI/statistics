@@ -8,7 +8,7 @@ import dz.me.dashboard.entities.Service;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public interface ServiceRepository extends JpaRepository<Service, UUID> {
 

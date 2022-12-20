@@ -12,7 +12,7 @@ import dz.me.dashboard.models.ErrorDetails;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @ResponseStatus(value = HttpStatus.FORBIDDEN)
 public class ResourceForbiddenWithRequestException extends RuntimeException {

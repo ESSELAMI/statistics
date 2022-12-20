@@ -8,7 +8,7 @@ import dz.me.dashboard.models.ErrorDetails;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public class ResponseEntityUtils {
 

@@ -20,7 +20,7 @@ import dz.me.dashboard.services.implement.UserDetailsServiceImpl;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @Configuration
 @EnableWebSecurity

@@ -15,7 +15,7 @@ import dz.me.dashboard.services.UserService;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Service
 public class UserServiceImpl implements UserService {

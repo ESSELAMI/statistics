@@ -2,7 +2,7 @@ package dz.me.dashboard.services;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 public interface UtilsParamService {
 

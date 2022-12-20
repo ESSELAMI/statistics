@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author MEKRICHE TAREK
+ * @author ABDELLATIF ESSELAMI
  */
 @ResponseStatus(value = HttpStatus.FORBIDDEN)
 public class ResourceForbiddenException extends RuntimeException {

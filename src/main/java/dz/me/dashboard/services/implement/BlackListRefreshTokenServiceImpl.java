@@ -18,7 +18,7 @@ import dz.me.dashboard.services.BlackListRefreshTokenService;
 
 /**
  *
- * @author Tarek Mekriche
+ * @author ABDELLATIF ESSELAMI
  */
 @Service
 public class BlackListRefreshTokenServiceImpl implements BlackListRefreshTokenService {
