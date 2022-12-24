@@ -48,5 +48,4 @@ public class Rubrique {
 
     @OneToMany(mappedBy = "rubrique", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<RubriqueValue> rubriqueValues;
-
 }
