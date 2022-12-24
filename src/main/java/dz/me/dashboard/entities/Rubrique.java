@@ -6,6 +6,8 @@ import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -40,6 +42,9 @@ public class Rubrique {
     private String nameFr;
     private String nameAr;
     private String nameEn;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "nature")
+    private Nature nature;
 
     @JsonIgnore
     @ManyToOne
@@ -48,4 +53,8 @@ public class Rubrique {
 
     @OneToMany(mappedBy = "rubrique", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<RubriqueValue> rubriqueValues;
+
+    public enum Nature {
+        MONEY, NUMBER
+    }
 }

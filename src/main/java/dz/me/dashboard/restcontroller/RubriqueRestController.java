@@ -103,6 +103,7 @@ public class RubriqueRestController {
             rubrique.setNameAr(rubriqueModel.getNameAr());
             rubrique.setNameFr(rubriqueModel.getNameFr());
             rubrique.setNameEn(rubriqueModel.getNameEn());
+            rubrique.setNature(rubriqueModel.getNature());
 
             return ResponseEntity.ok(rubriqueService.save(rubrique));
         } catch (Exception e) {
