@@ -50,7 +50,7 @@ public class WebSecurityConfig {
         .antMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html")
         .permitAll()
         .antMatchers(HttpMethod.GET, "/user/info", "/api/foos/**", "/api/v1/services/**", "/api/v1/rubriques/**",
-            "/api/v1/rubriques-values/**")
+            "/api/v1/rubrique-values/**")
 
     ;
     http.cors().and().csrf().disable()
@@ -59,7 +59,7 @@ public class WebSecurityConfig {
         .authorizeRequests()
         .antMatchers("/api/v1/auth/login/**", "/api/v1/auth/refresh-token**", "/guichet1",
             "/api/v1/guichets/all/user/**", "/", "/api/v1/services/**", "/api/v1/rubriques/**",
-            "/api/v1/rubriques-values/**", "/api/v1/users/**")
+            "/api/v1/rubrique-values/**", "/api/v1/users/**")
         .permitAll()
         .anyRequest().authenticated();
     http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);

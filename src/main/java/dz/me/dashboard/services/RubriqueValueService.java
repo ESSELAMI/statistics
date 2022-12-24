@@ -16,4 +16,6 @@ public interface RubriqueValueService {
 
     public List<RubriqueValue> findAll();
 
+    void deleteById(UUID serviceId);
+
 }

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import dz.me.dashboard.entities.Rubrique;
 import dz.me.dashboard.entities.RubriqueValue;
+import dz.me.dashboard.exceptions.ResourceForbiddenException;
 import dz.me.dashboard.repositories.RubriqueRepository;
 import dz.me.dashboard.repositories.RubriqueValueRepository;
 import dz.me.dashboard.services.RubriqueService;
@@ -52,5 +53,16 @@ public class RubriqueValueServiceImpl implements RubriqueValueService {
         List<RubriqueValue> rubriqueValues = new ArrayList<>();
         rubriqueValues = repository.findByRubrique(rubrique.get());
         return rubriqueValues;
+    }
+
+    @Override
+    public void deleteById(UUID rubrique) {
+        try {
+
+            repository.deleteById(rubrique);
+        } catch (Exception e) {
+            throw new ResourceForbiddenException(e.getMessage());
+        }
+
     }
 }
